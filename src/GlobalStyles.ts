@@ -6,6 +6,10 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+  body{
+    background-color: #2F2E41;
+  }
 	
   html, body, #root{
     height: 100%;
@@ -14,7 +18,11 @@ const GlobalStyles = createGlobalStyle`
   *, button, input{
     border: 0;
     outline: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  a{
+    text-decoration: none;
   }
 
   button{
