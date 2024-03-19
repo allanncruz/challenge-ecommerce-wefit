@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
 
   body{
     background-color: #2F2E41;
+    font-size: 12px;
   }
 	
   html, body, #root{
