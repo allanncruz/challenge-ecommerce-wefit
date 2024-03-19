@@ -14,6 +14,9 @@ export const CardContainer = styled.div`
 
   button{
     width: 100%;
+    svg {
+      margin-right: 10px;
+    }
   }
 
   h5{

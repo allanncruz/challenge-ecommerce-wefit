@@ -16,8 +16,4 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: #0056b3;
   }
-
-  svg {
-    margin-right: 10px;
-  }
 `;
