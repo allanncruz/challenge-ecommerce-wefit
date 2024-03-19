@@ -14,9 +14,6 @@ const Navbar = () => {
       <Container>
         <NavBrand href="/">WeMovies</NavBrand>
         <NavItem>
-          <NavLink href="/">
-            Home
-          </NavLink>
           <NavLink href="/carrinho">
             <CartButton />
           </NavLink>

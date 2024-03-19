@@ -23,6 +23,7 @@ export const NavBrand = styled.a`
 `;
 
 export const NavItem = styled.ul`
+  display: flex;
 `;
 
 export const NavLink = styled.a`

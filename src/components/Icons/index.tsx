@@ -2,13 +2,14 @@ import Spinner from "../../assets/load-spinner.png"
 
 export const Add = () => (
   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9.9 4.5H8.1V8.1H4.5V9.9H8.1V13.5H9.9V9.9H13.5V8.1H9.9V4.5ZM9 0C4.032 0 0 4.032 0 9C0 13.968 4.032 18 9 18C13.968 18 18 13.968 18 9C18 4.032 13.968 0 9 0ZM9 16.2C5.031 16.2 1.8 12.969 1.8 9C1.8 5.031 5.031 1.8 9 1.8C12.969 1.8 16.2 5.031 16.2 9C16.2 12.969 12.969 16.2 9 16.2Z" />
+    <path d="M9.9 4.5H8.1V8.1H4.5V9.9H8.1V13.5H9.9V9.9H13.5V8.1H9.9V4.5ZM9 0C4.032 0 0 4.032 0 9C0 13.968 4.032 18 9 18C13.968 18 18 13.968 18 9C18 4.032 13.968 0 9 0ZM9 16.2C5.031 16.2 1.8 12.969 1.8 9C1.8 5.031 5.031 1.8 9 1.8C12.969 1.8 16.2 5.031 16.2 9C16.2 12.969 12.969 16.2 9 16.2Z" fill="#009EDD"/>
   </svg>
+
 );
 
 export const Delet = () => (
-  <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1.14286 16C1.14286 17.1 2.17143 18 3.42857 18H12.5714C13.8286 18 14.8571 17.1 14.8571 16V4H1.14286V16ZM16 1H12L10.8571 0H5.14286L4 1H0V3H16V1Z" fill="#009EDD"/>
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 8.1V9.9H13.5V8.1H4.5ZM9 0C4.032 0 0 4.032 0 9C0 13.968 4.032 18 9 18C13.968 18 18 13.968 18 9C18 4.032 13.968 0 9 0ZM9 16.2C5.031 16.2 1.8 12.969 1.8 9C1.8 5.031 5.031 1.8 9 1.8C12.969 1.8 16.2 5.031 16.2 9C16.2 12.969 12.969 16.2 9 16.2Z" fill="#009EDD"/>
   </svg>
 );
 
@@ -33,6 +34,12 @@ export const ShoppingCart = () => (
   </svg>
 );
 
+
+export const Trash = () => (
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.28571 16C1.28571 17.1 2.44286 18 3.85714 18H14.1429C15.5571 18 16.7143 17.1 16.7143 16V4H1.28571V16ZM18 1H13.5L12.2143 0H5.78571L4.5 1H0V3H18V1Z" fill="#009EDD"/>
+  </svg>
+);
 
 export const IconSpinner = () => (
   <>

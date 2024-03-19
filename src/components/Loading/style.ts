@@ -10,12 +10,15 @@ const rotate = keyframes`
 `
 
 export const Spinner = styled.div`
-  width: 64px;
-  height: 64px;
   margin: 100px 0 auto;
   animation: ${rotate} 1s linear infinite;
   position: absolute;
-  width: 100%;
   text-align: center;
+  width: 100%;
+  left: 0;
+  img {
+    width: 64px;
+    height: 64px;
+  }
 
 `
