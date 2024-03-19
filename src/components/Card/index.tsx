@@ -1,8 +1,8 @@
 import React from "react";
 import { IProduct } from "../../interfaces/Products";
-import { CardContainer } from "./style";
 import Button from "../Button";
 import { CartAdd } from "../Icons";
+import { CardContainer } from "./style";
 
 const Card: React.FC<IProduct> = ({
   id,
@@ -17,7 +17,7 @@ const Card: React.FC<IProduct> = ({
   };
 
   return(
-    <CardContainer>
+    <CardContainer key={id}>
       <img src={image} alt={title} />
       <h5>{title}</h5>
       <span>R$ {price}</span>
