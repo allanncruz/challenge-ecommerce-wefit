@@ -1,3 +1,4 @@
+import CartButton from '../CartButton';
 import {
   Container,
   Nav,
@@ -14,8 +15,7 @@ const Navbar = () => {
         <NavBrand href="/">WeMovies</NavBrand>
         <NavItem>
           <NavLink href="/carrinho">
-            Meu Carrinho
-            <small>0 itens</small>
+            <CartButton />
           </NavLink>
         </NavItem>
       </Container>

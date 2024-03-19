@@ -10,8 +10,14 @@ export const StyledButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
 
   &:hover {
     background-color: #0056b3;
+  }
+
+  svg {
+    margin-right: 10px;
   }
 `;
