@@ -13,15 +13,6 @@ export const Container = styled.div`
   hr {
     margin: 35px 0;
   }
-
-  span{
-    position: absolute;
-    top: 23px;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #999999;
-  }
 `
 
 export const CartItem = styled.div`
@@ -35,7 +26,7 @@ export const CartMovie = styled.div`
   align-items: center;
   max-width: 280px;
   width: 100%;
-  
+    
   img {
     width: 90px;
     margin-right: 20px;
@@ -45,11 +36,27 @@ export const CartMovie = styled.div`
     font-size: 14px;
     margin-bottom: 8px;
   }
+
+  span {
+    font-size: 16px;
+    display: block;
+    font-weight: 700;
+  }
+
+  @media (max-width: 600px) {
+    align-items: start;
+
+    span {
+      display: none;
+    }
+  }
 `
 
 export const CartCount = styled.div`
-  display: flex;
   width: 100%;
+  height: 115px;
+  display: flex;
+  align-items: center;
 
   button {
     background-color: transparent;
@@ -63,28 +70,73 @@ export const CartCount = styled.div`
     padding: 3px;
     margin: 0 10px;
   }
+
+  @media (max-width: 600px) {
+    align-items: end;
+  }
+
 `
 
 export const CartTotalizing = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 115px;
+  align-items: center;
 
   button {
     background-color: transparent;
   }
 
-`
+  span {
+    font-size: 16px;
+    display: block;
+    font-weight: 700;
+  }
 
-export const Price = styled.div`
-  font-size: 16px;
-  display: block;
-  font-weight: 700;
+  div:first-child {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  div:last-child {
+    display: none;
+    small {
+      color: #999999;
+      font-weight: 700;
+    }
+  }
+
+  @media (max-width: 600px) {
+    align-items: end;
+    flex-direction: column;
+
+    div:last-child {
+      display: block;
+    }
+  }
+
 `
 
 export const CartFooter = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+    align-items: end;
+
+    button {
+      width: 100%;
+    }
+
+    div {
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
 `
 
 export const CartAmount = styled.div`

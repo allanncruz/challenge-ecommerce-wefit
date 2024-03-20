@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CartCount, CartFooter, CartItem, CartMovie, CartAmount, CartTotalizing, Container, EmptyState, Price } from "./style";
+import { CartCount, CartFooter, CartItem, CartMovie, CartAmount, CartTotalizing, Container, EmptyState } from "./style";
 import { Add, Delet, Trash } from "../../components/Icons";
 import Button from "../../components/Button";
 import { IData } from "../../interfaces/Moveis";
@@ -50,15 +50,13 @@ const Cart = () => {
             <>
               <CartItem>
                 <CartMovie>
-                  <span>Produto</span>
                   <img src={movie.image} alt="" />
                   <div>
                     <h5>{movie.title}</h5>
-                    <Price>{movie.price}</Price> 
+                    <span>R$ {movie.price}</span> 
                   </div>
                 </CartMovie>
                 <CartCount>
-                  <span>Qtd</span>
                   <button onClick={removeAuantity}>
                     <Delet />
                   </button>
@@ -68,9 +66,14 @@ const Cart = () => {
                   </button>
                 </CartCount>
                 <CartTotalizing>
-                  <span>Subtotal</span>
-                  <Price>R$ 29,99</Price>
-                  <button onClick={() => removeMovies(index)}><Trash /></button>
+                  <div>
+                    <span>R$ 29,99</span>
+                    <button onClick={() => removeMovies(index)}><Trash /></button>
+                  </div>
+                  <div>
+                    <small>SUBTOTAL</small>
+                    <span>R$ 29,99</span>
+                  </div>
                 </CartTotalizing>
               </CartItem> 
               <hr />
