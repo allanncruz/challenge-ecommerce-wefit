@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { CartCount, CartFooter, CartItem, CartMovie, CartAmount, CartTotalizing, Container, EmptyState } from "./style";
-import { Add, Delet, Trash } from "../../components/Icons";
+import { CartFooter, CartAmount, Container, EmptyState } from "./style";
 import Button from "../../components/Button";
 import { IData } from "../../interfaces/Moveis";
 import EmptyImg from "../../assets/empty.png";
 import { useNavigate } from 'react-router-dom';
+import CartItem from "../../components/CartItem";
 
 const Cart = () => {
-  const [countQuantity, setCountQuantity] = useState(0);
   const [movies, setMovies] = useState<IData[]>([]);
   const navigate = useNavigate();
 
@@ -34,16 +33,6 @@ const Cart = () => {
     return acc + movie.price;
   }, 0);
 
-  const addQuantity = () => {
-    setCountQuantity(countQuantity + 1);
-  };
-
-  const removeAuantity = () => {
-    if (countQuantity > 0) {
-      setCountQuantity(prevCount => prevCount - 1);
-    }
-  };
-
   const handleConfired = () => {
     localStorage.removeItem('cart');
 
@@ -60,44 +49,22 @@ const Cart = () => {
         <>
           {movies?.map((movie, index) => (
             <>
-              <CartItem>
-                <CartMovie>
-                  <img src={movie.image} alt="" />
-                  <div>
-                    <h5>{movie.title}</h5>
-                    <span>R$ {movie.price}</span> 
-                  </div>
-                </CartMovie>
-                <CartCount>
-                  <button onClick={removeAuantity}>
-                    <Delet />
-                  </button>
-                  <input type="text" value={countQuantity} />
-                  <button onClick={addQuantity}>
-                    <Add />
-                  </button>
-                </CartCount>
-                <CartTotalizing>
-                  <div>
-                    <span>R$ 29,99</span>
-                    <button onClick={() => removeMovies(index)}><Trash /></button>
-                  </div>
-                  <div>
-                    <small>SUBTOTAL</small>
-                    <span>R$ 29,99</span>
-                  </div>
-                </CartTotalizing>
-              </CartItem> 
+              <CartItem
+                image={movie.image}
+                title={movie.title}
+                price={movie.price}
+                removeMovies={() => removeMovies(index)}
+              />
               <hr />
             </>
           ))}
-        <CartFooter>
-          <Button onClick={handleConfired}>FINALIZAR PEDIDO</Button>
-          <CartAmount>
-            <small>TOTAL</small>
-            R${totalPrice.toFixed(2)}
-          </CartAmount>
-        </CartFooter>
+          <CartFooter>
+            <Button onClick={handleConfired}>FINALIZAR PEDIDO</Button>
+            <CartAmount>
+              <small>TOTAL</small>
+              R${totalPrice.toFixed(2)}
+            </CartAmount>
+          </CartFooter>
         </>
       ) : (
       <EmptyState>
