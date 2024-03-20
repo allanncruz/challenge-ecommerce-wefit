@@ -7,7 +7,7 @@ import EmptyImg from "../../assets/empty.png";
 
 const Cart = () => {
   const [count, setCount] = useState(0);
-  const [userData, setUserData] = useState<IData[]>();
+  const [userData, setUserData] = useState<IData[]>([]);
 
   useEffect(() => {
     const fetchUserData = () => {
@@ -19,6 +19,14 @@ const Cart = () => {
 
     fetchUserData();
   }, []);
+
+  const removeUserData = (index: number) => {
+    const updatedUserDataList = [...userData];
+    updatedUserDataList.splice(index, 1);
+    setUserData(updatedUserDataList);
+
+    localStorage.setItem('cart', JSON.stringify(updatedUserDataList));
+  };
 
   const increment = () => {
     setCount(count + 1);
@@ -34,7 +42,7 @@ const Cart = () => {
     <Container>
       {userData ? (
         <>
-          {userData?.map(movie => (
+          {userData?.map((movie, index) => (
             <>
               <CartItem>
                 <CartMovie>
@@ -58,7 +66,7 @@ const Cart = () => {
                 <CartTotalizing>
                   <span>Subtotal</span>
                   <Price>R$ 29,99</Price>
-                  <Trash />
+                  <button onClick={() => removeUserData(index)}><Trash /></button>
                 </CartTotalizing>
               </CartItem> 
               <hr />
@@ -76,6 +84,8 @@ const Cart = () => {
       <EmptyState>
         <h2>Parece que não há nada por aqui :(</h2>
         <img src={EmptyImg} alt="Parece que não há nada por aqui :(" />
+
+        <Button>Recarregar página</Button>
       </EmptyState>
       )};
       
