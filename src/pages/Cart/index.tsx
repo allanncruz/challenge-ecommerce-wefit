@@ -6,47 +6,47 @@ import { IData } from "../../interfaces/Moveis";
 import EmptyImg from "../../assets/empty.png";
 
 const Cart = () => {
-  const [count, setCount] = useState(0);
-  const [userData, setUserData] = useState<IData[]>([]);
+  const [countQuantity, setCountQuantity] = useState(0);
+  const [movies, setMovies] = useState<IData[]>([]);
 
   useEffect(() => {
-    const fetchUserData = () => {
-      const storedUserData = localStorage.getItem('cart');
-      if (storedUserData) {
-        setUserData(JSON.parse(storedUserData));
+    const fetchMovies = () => {
+      const storedMovies = localStorage.getItem('cart');
+      if (storedMovies) {
+        setMovies(JSON.parse(storedMovies));
       }
     };
 
-    fetchUserData();
+    fetchMovies();
   }, []);
 
-  const removeUserData = (index: number) => {
-    const updatedUserDataList = [...userData];
-    updatedUserDataList.splice(index, 1);
-    setUserData(updatedUserDataList);
+  const removeMovies = (index: number) => {
+    const updatedMoviesList = [...movies];
+    updatedMoviesList.splice(index, 1);
+    setMovies(updatedMoviesList);
 
-    localStorage.setItem('cart', JSON.stringify(updatedUserDataList));
+    localStorage.setItem('cart', JSON.stringify(updatedMoviesList));
   };
 
-  const totalPrice = userData.reduce((acc, product) => {
-    return acc + product.price;
+  const totalPrice = movies.reduce((acc, movie) => {
+    return acc + movie.price;
   }, 0);
 
-  const increment = () => {
-    setCount(count + 1);
+  const addQuantity = () => {
+    setCountQuantity(countQuantity + 1);
   };
 
-  const decrement = () => {
-    if (count > 0) {
-      setCount(prevCount => prevCount - 1);
+  const removeAuantity = () => {
+    if (countQuantity > 0) {
+      setCountQuantity(prevCount => prevCount - 1);
     }
   };
 
   return (
     <Container>
-      {userData ? (
+      {movies && totalPrice ? (
         <>
-          {userData?.map((movie, index) => (
+          {movies?.map((movie, index) => (
             <>
               <CartItem>
                 <CartMovie>
@@ -59,18 +59,18 @@ const Cart = () => {
                 </CartMovie>
                 <CartCount>
                   <span>Qtd</span>
-                  <button onClick={decrement}>
+                  <button onClick={removeAuantity}>
                     <Delet />
                   </button>
-                  <input type="text" value={count} />
-                  <button onClick={increment}>
+                  <input type="text" value={countQuantity} />
+                  <button onClick={addQuantity}>
                     <Add />
                   </button>
                 </CartCount>
                 <CartTotalizing>
                   <span>Subtotal</span>
                   <Price>R$ 29,99</Price>
-                  <button onClick={() => removeUserData(index)}><Trash /></button>
+                  <button onClick={() => removeMovies(index)}><Trash /></button>
                 </CartTotalizing>
               </CartItem> 
               <hr />

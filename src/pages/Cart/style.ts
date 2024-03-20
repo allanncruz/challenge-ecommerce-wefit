@@ -69,6 +69,11 @@ export const CartTotalizing = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  button {
+    background-color: transparent;
+  }
+
 `
 
 export const Price = styled.div`

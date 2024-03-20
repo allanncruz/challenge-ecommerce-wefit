@@ -3,17 +3,17 @@ import { ShoppingCart } from "../Icons";
 import { CartButtonStyle } from "./style";
 
 const CartButton = () => {
-  const [userData, setUserData] = useState<any>([]);
+  const [movies, setMovies] = useState<any>([]);
 
   useEffect(() => {
-    const fetchUserData = () => {
-      const storedUserData = localStorage.getItem('cart');
-      if (storedUserData) {
-        setUserData(JSON.parse(storedUserData));
+    const fetchMovies = () => {
+      const storedMovies = localStorage.getItem('cart');
+      if (storedMovies) {
+        setMovies(JSON.parse(storedMovies));
       }
     };
 
-    fetchUserData();
+    fetchMovies();
   }, []);
 
 
@@ -21,7 +21,7 @@ const CartButton = () => {
     <CartButtonStyle>
       <div>
         Meu Carrinho
-        <small>{userData.length} itens</small>
+        <small>{movies.length} itens</small>
       </div>
       <ShoppingCart />
     </CartButtonStyle>
