@@ -1,19 +1,15 @@
-import React from "react";
-import { IProduct } from "../../interfaces/Products";
+import { IData } from "../../interfaces/Moveis";
 import Button from "../Button";
 import { CartAdd } from "../Icons";
 import { CardContainer } from "./style";
 
-const Card: React.FC<IProduct> = ({
-  id,
-  title,
-  price,
-  image
-}
-) => {
+const Card = ({data}: any) => {
+  const {id, title, price, image} = data;
 
-  const handleClick = () => {
-    console.log('Botão clicado!');
+  const handleClickMovei = (Movei: IData) => {
+    const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+    const updatedCartItems = [...cartItems, Movei];
+    localStorage.setItem('cart', JSON.stringify(updatedCartItems));
   };
 
   return(
@@ -21,7 +17,7 @@ const Card: React.FC<IProduct> = ({
       <img src={image} alt={title} />
       <h5>{title}</h5>
       <span>R$ {price}</span>
-      <Button onClick={handleClick}>
+      <Button onClick={() => handleClickMovei(data)}>
         <CartAdd />
         ADICIONAR AO CARRINHO
       </Button>

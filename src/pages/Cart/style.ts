@@ -11,7 +11,7 @@ export const Container = styled.div`
   position: relative;
 
   hr {
-    margin: 25px 0;
+    margin: 35px 0;
   }
 
   span{
@@ -92,6 +92,14 @@ export const CartAmount = styled.div`
     font-size: 14px;
     color: #999999;
     margin-right: 25px;
+  }
+`
+
+export const EmptyState = styled.div`
+  text-align: center;
+
+  h2{
+    font-size: 20px;
   }
 `
 

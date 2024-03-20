@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { IProduct } from "../../interfaces/Products";
+import { useEffect, useState } from "react";
 import fetchMoveis from "../../api/fetchMoveis";
 import Card from "../Card";
 import Loading from "../Loading";
+import { IData } from "../../interfaces/Moveis";
 
 const Movies = () => {
-  const [movies, setMovies] = useState<IProduct[]>();
+  const [movies, setMovies] = useState<IData[]>();
   const [loading, setlLoading] = useState(true);
 
   useEffect(() => {
@@ -19,11 +19,9 @@ const Movies = () => {
     (loading && <Loading />) || (
       <>
         {movies?.map(movie => (
-          <Card 
-            id={movie.id}
-            title={movie.title}
-            price={movie.price}
-            image={movie.image}
+          <Card
+            key={movie.id}
+            data={movie}
           />
         ))}
       </>
