@@ -4,10 +4,12 @@ import { Add, Delet, Trash } from "../../components/Icons";
 import Button from "../../components/Button";
 import { IData } from "../../interfaces/Moveis";
 import EmptyImg from "../../assets/empty.png";
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const [countQuantity, setCountQuantity] = useState(0);
   const [movies, setMovies] = useState<IData[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovies = () => {
@@ -40,6 +42,16 @@ const Cart = () => {
     if (countQuantity > 0) {
       setCountQuantity(prevCount => prevCount - 1);
     }
+  };
+
+  const handleConfired = () => {
+    localStorage.removeItem('cart');
+
+    navigate('/pedido-confirmado');
+  }
+
+  const navigateTo = (route: string) => {
+    navigate(route);
   };
 
   return (
@@ -78,9 +90,9 @@ const Cart = () => {
               </CartItem> 
               <hr />
             </>
-          ))};
+          ))}
         <CartFooter>
-          <Button>FINALIZAR PEDIDO</Button>
+          <Button onClick={handleConfired}>FINALIZAR PEDIDO</Button>
           <CartAmount>
             <small>TOTAL</small>
             R${totalPrice.toFixed(2)}
@@ -92,12 +104,12 @@ const Cart = () => {
         <h2>Parece que não há nada por aqui :(</h2>
         <img src={EmptyImg} alt="Parece que não há nada por aqui :(" />
 
-        <Button>Recarregar página</Button>
+        <Button onClick={() => navigateTo('/carrinho')}>Recarregar página</Button>
       </EmptyState>
-      )};
+      )}
       
     </Container>
-  );
+  )
 }
 
 export default Cart;

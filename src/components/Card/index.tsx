@@ -10,6 +10,8 @@ const Card = ({data}: any) => {
     const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
     const updatedCartItems = [...cartItems, Movei];
     localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+
+    window.location.reload();
   };
 
   return(

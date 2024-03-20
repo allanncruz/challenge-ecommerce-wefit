@@ -3,8 +3,8 @@ import { StyledButton } from './style';
 import { ButtonProps } from '../../interfaces/Moveis';
 
 
-const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
-  return <StyledButton onClick={onClick}>
+const Button: React.FC<ButtonProps> = ({ typeButton, onClick, children }) => {
+  return <StyledButton type={typeButton} onClick={onClick}>
     {children}
   </StyledButton>;
 };

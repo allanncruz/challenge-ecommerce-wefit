@@ -73,8 +73,10 @@ export const CartCount = styled.div`
 
   @media (max-width: 600px) {
     align-items: end;
+    margin-right: -50px;
+    left: -50px;
+    position: relative;
   }
-
 `
 
 export const CartTotalizing = styled.div`
@@ -153,10 +155,10 @@ export const CartAmount = styled.div`
 `
 
 export const EmptyState = styled.div`
-    padding: 20px 0 80px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding: 20px 0 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h2{
     font-size: 20px;

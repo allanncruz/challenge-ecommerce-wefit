@@ -10,6 +10,7 @@ export interface IMovies {
 }
 
 export interface ButtonProps {
+  typeButton?: any;
   onClick?: () => void;
   children: React.ReactNode;
 }

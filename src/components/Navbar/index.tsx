@@ -18,7 +18,7 @@ const Navbar = () => {
             <CartButton />
           </NavLink>
         </NavItem>
-      </Container>
+      </Container>  
     </Nav>
   );
 }
