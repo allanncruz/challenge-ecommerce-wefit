@@ -28,6 +28,10 @@ const Cart = () => {
     localStorage.setItem('cart', JSON.stringify(updatedUserDataList));
   };
 
+  const totalPrice = userData.reduce((acc, product) => {
+    return acc + product.price;
+  }, 0);
+
   const increment = () => {
     setCount(count + 1);
   };
@@ -76,7 +80,7 @@ const Cart = () => {
           <Button>FINALIZAR PEDIDO</Button>
           <CartAmount>
             <small>TOTAL</small>
-            R$ 29,90
+            R${totalPrice.toFixed(2)}
           </CartAmount>
         </CartFooter>
         </>
