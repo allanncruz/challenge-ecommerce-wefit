@@ -4,8 +4,8 @@ import Loading from "../Loading";
 import { IData } from "../../interfaces/Moveis";
 import Button from "../Button";
 import { CartAdd } from "../Icons";
-import { CardContainer } from "../Card/style";
 import { useMovieContext } from "../../context/Provider";
+import { CardContainer } from "./style";
 
 
 
