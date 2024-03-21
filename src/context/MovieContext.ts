@@ -5,9 +5,11 @@ import { IData } from "../interfaces/Moveis";
 interface MovieContextType {
   selectedMovies: IData[];
   addMovie: (movie: IData) => void;
+  removeMovie: (movieId: number) => void;
 }
 
 export const MovieContext = createContext<MovieContextType>({
   selectedMovies: [],
   addMovie: () => {},
+  removeMovie: () => {},
 });

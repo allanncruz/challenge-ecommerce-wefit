@@ -13,8 +13,12 @@ const MovieProvider: React.FC<BaseProviderProps> = ({ children }) => {
     setSelectedMovies([...selectedMovies, movie]);
   };
 
+  const removeMovie = (movieId: number) => {
+    setSelectedMovies(selectedMovies.filter(item => item.id !== movieId));
+  };
+
   return (
-    <MovieContext.Provider value={{ selectedMovies, addMovie }}>
+    <MovieContext.Provider value={{ selectedMovies, addMovie, removeMovie }}>
       {children}
     </MovieContext.Provider>
   );

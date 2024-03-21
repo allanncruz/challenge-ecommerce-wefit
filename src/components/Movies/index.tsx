@@ -26,14 +26,14 @@ const Movies = () => {
       <>
         {movies?.map(movie => (
           <CardContainer key={movie.id}>
-          <img src={movie.image} alt={movie.title} />
-          <h5>{movie.title}</h5>
-          <span>R$ {movie.price}</span>
-          <Button onClick={() => addMovie(movie)}>
-            <CartAdd />
-            ADICIONAR AO CARRINHO
-          </Button>
-        </CardContainer>
+            <img src={movie.image} alt={movie.title} />
+            <h5>{movie.title}</h5>
+            <span>R$ {movie.price}</span>
+            <Button onClick={() => addMovie(movie)}>
+              <CartAdd />
+              ADICIONAR AO CARRINHO
+            </Button>
+          </CardContainer>
         ))}
       </>
     )

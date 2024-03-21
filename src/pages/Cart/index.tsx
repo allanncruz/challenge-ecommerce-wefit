@@ -1,40 +1,19 @@
-import { useEffect, useState } from "react";
 import { CartFooter, CartAmount, Container, EmptyState } from "./style";
 import Button from "../../components/Button";
-import { IData } from "../../interfaces/Moveis";
 import EmptyImg from "../../assets/empty.png";
 import { useNavigate } from 'react-router-dom';
 import CartItem from "../../components/CartItem";
+import { useMovieContext } from "../../context/Provider";
 
 const Cart = () => {
-  const [movies, setMovies] = useState<IData[]>([]);
+  const { selectedMovies, removeMovie } = useMovieContext();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchMovies = () => {
-      const storedMovies = localStorage.getItem('cart');
-      if (storedMovies) {
-        setMovies(JSON.parse(storedMovies));
-      }
-    };
-
-    fetchMovies();
-  }, []);
-
-  const removeMovies = (index: number) => {
-    const updatedMoviesList = [...movies];
-    updatedMoviesList.splice(index, 1);
-    setMovies(updatedMoviesList);
-
-    localStorage.setItem('cart', JSON.stringify(updatedMoviesList));
-  };
-
-  const totalPrice = movies.reduce((acc, movie) => {
+  const totalPrice = selectedMovies.reduce((acc, movie) => {
     return acc + movie.price;
   }, 0);
 
   const handleConfired = () => {
-    localStorage.removeItem('cart');
 
     navigate('/pedido-confirmado');
   }
@@ -43,17 +22,19 @@ const Cart = () => {
     navigate(route);
   };
 
+  console.log(selectedMovies)
+
   return (
     <Container>
-      {movies && totalPrice ? (
+      {selectedMovies.length > 0 ? (
         <>
-          {movies?.map((movie, index) => (
+          {selectedMovies?.map((movie) => (
             <>
               <CartItem
                 image={movie.image}
                 title={movie.title}
                 price={movie.price}
-                removeMovies={() => removeMovies(index)}
+                removeMovies={() => removeMovie(movie.id)}
               />
               <hr />
             </>
@@ -74,7 +55,6 @@ const Cart = () => {
         <Button onClick={() => navigateTo('/carrinho')}>Recarregar página</Button>
       </EmptyState>
       )}
-      
     </Container>
   )
 }
