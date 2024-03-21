@@ -10,7 +10,7 @@ interface ICartItem {
 }
 
 const CartItem = ({image, title, price, removeMovies}: ICartItem) => {
-  const [countQuantity, setCountQuantity] = useState(0);
+  const [countQuantity, setCountQuantity] = useState(1);
 
 
   const addQuantity = () => {
@@ -43,12 +43,12 @@ const CartItem = ({image, title, price, removeMovies}: ICartItem) => {
       </CartCount>
       <CartTotalizing>
         <div>
-          <span>R$ {price}</span>
+          <span>R$ {price * countQuantity}</span>
           <button onClick={removeMovies}><Trash /></button>
         </div>
         <div>
           <small>SUBTOTAL</small>
-          <span>R$ {price}</span>
+          <span>R$ {price * countQuantity}</span>
         </div>
       </CartTotalizing>
     </CartItemStyled> 

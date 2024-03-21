@@ -1,27 +1,15 @@
-import { useEffect, useState } from "react";
 import { ShoppingCart } from "../Icons";
 import { CartButtonStyle } from "./style";
+import { useMovieContext } from "../../context/Provider";
 
 const CartButton = () => {
-  const [movies, setMovies] = useState<any>([]);
-
-  useEffect(() => {
-    const fetchMovies = () => {
-      const storedMovies = localStorage.getItem('cart');
-      if (storedMovies) {
-        setMovies(JSON.parse(storedMovies));
-      }
-    };
-
-    fetchMovies();
-  }, []);
-
+  const { selectedMovies } = useMovieContext();
 
   return(
     <CartButtonStyle>
       <div>
         Meu Carrinho
-        <small>{movies.length} itens</small>
+        <small>{selectedMovies.length} itens</small>
       </div>
       <ShoppingCart />
     </CartButtonStyle>

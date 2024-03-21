@@ -3,9 +3,11 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Confirmed from './pages/Confirmed';
 import Navbar from './components/Navbar';
+import MovieProvider from './context/Provider';
 
 function App() {
   return (
+    <MovieProvider>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -14,6 +16,7 @@ function App() {
           <Route path="/pedido-confirmado" element={<Confirmed />} />
         </Routes>
       </BrowserRouter>
+    </MovieProvider>
   );
 }
 

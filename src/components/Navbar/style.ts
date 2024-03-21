@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 
@@ -15,7 +16,7 @@ export const Nav = styled.nav`
   color: #fff;
 `;
 
-export const NavBrand = styled.a`
+export const NavBrand = styled(Link)`
   font-size: 27px;
   font-weight: bold;
   text-decoration: none;
@@ -26,7 +27,7 @@ export const NavItem = styled.ul`
   display: flex;
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled(Link)`
   color: #fff;
   font-size: 14px;
   small {

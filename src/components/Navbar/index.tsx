@@ -12,9 +12,9 @@ const Navbar = () => {
   return(
     <Nav>
       <Container>
-        <NavBrand href="/">WeMovies</NavBrand>
+        <NavBrand to="/">WeMovies</NavBrand>
         <NavItem>
-          <NavLink href="/carrinho">
+          <NavLink to="/carrinho">
             <CartButton />
           </NavLink>
         </NavItem>
