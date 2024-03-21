@@ -6,7 +6,7 @@ import CartItem from "../../components/CartItem";
 import { useMovieContext } from "../../context/Provider";
 
 const Cart = () => {
-  const { selectedMovies, removeMovie } = useMovieContext();
+  const { selectedMovies, removeMovie, clearSelectedMovie } = useMovieContext();
   const navigate = useNavigate();
 
   const totalPrice = selectedMovies.reduce((acc, movie) => {
@@ -16,13 +16,12 @@ const Cart = () => {
   const handleConfired = () => {
 
     navigate('/pedido-confirmado');
+    clearSelectedMovie();
   }
 
   const navigateTo = (route: string) => {
     navigate(route);
   };
-
-  console.log(selectedMovies)
 
   return (
     <Container>
