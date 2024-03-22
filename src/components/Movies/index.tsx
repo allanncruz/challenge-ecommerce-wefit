@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import fetchMoveis from "../../api/fetchMoveis";
 import Loading from "../Loading";
-import { IData } from "../../interfaces/Moveis";
+import { IData } from "../../interfaces/Movies";
 import Button from "../Button";
 import { CartAdd } from "../Icons";
 import { useMovieContext } from "../../context/Provider";
 import { CardContainer } from "./style";
+import fetchMovies from "../../api/fetchMovies";
 
 
 
 const Movies = () => {
-  const { addMovie } = useMovieContext();
+  const { countQuantityButton, addMovie } = useMovieContext();
   const [movies, setMovies] = useState<IData[]>();
   const [loading, setlLoading] = useState(true);
 
   useEffect(() => {
-    fetchMoveis('movies').then((response) => {
+    fetchMovies('movies').then((response) => {
       setMovies(response);
       setlLoading(false);
     })
@@ -31,7 +31,7 @@ const Movies = () => {
             <span>R$ {movie.price}</span>
             <Button onClick={() => addMovie(movie)}>
               <CartAdd />
-              ADICIONAR AO CARRINHO
+                            ADICIONAR AO CARRINHO
             </Button>
           </CardContainer>
         ))}

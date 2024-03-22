@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {CartItemStyled, CartCount, CartMovie, CartTotalizing } from "./style";
 import { Add, Delet, Trash } from "../../components/Icons";
-import { ICartItem } from "../../interfaces/Moveis";
+import { ICartItem } from "../../interfaces/Movies";
 
 
 const CartItem = ({image, title, price, removeMovies}: ICartItem) => {

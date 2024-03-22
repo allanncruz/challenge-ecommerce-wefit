@@ -13,10 +13,9 @@ const Cart = () => {
     return acc + movie.price;
   }, 0);
 
-  const handleConfired = () => {
-
-    navigate('/pedido-confirmado');
+  const handleConfirmed = () => {
     clearSelectedMovie();
+    navigate('/pedido-confirmado');
   }
 
   const navigateTo = (route: string) => {
@@ -39,7 +38,7 @@ const Cart = () => {
             </>
           ))}
           <CartFooter>
-            <Button onClick={handleConfired}>FINALIZAR PEDIDO</Button>
+            <Button onClick={handleConfirmed}>FINALIZAR PEDIDO</Button>
             <CartAmount>
               <small>TOTAL</small>
               R${totalPrice.toFixed(2)}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledButton } from './style';
-import { ButtonProps } from '../../interfaces/Moveis';
+import { ButtonProps } from '../../interfaces/Movies';
 
 
 const Button: React.FC<ButtonProps> = ({ typeButton, onClick, children }) => {

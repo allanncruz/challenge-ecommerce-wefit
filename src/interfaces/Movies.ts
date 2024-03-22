@@ -19,6 +19,7 @@ export interface ButtonProps {
 
 export interface MovieContextType {
   selectedMovies: IData[];
+  countQuantityButton: number;
   addMovie: (movie: IData) => void;
   removeMovie: (movieId: number) => void;
   clearSelectedMovie: () => void;
