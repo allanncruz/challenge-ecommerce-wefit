@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { MovieContextType } from "../interfaces/Moveis";
+import { MovieContextType } from "../interfaces/Movies";
 
 export const MovieContext = createContext<MovieContextType>({
   selectedMovies: [],

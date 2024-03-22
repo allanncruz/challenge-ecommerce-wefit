@@ -13,13 +13,13 @@ export interface IMovies {
 
 export interface ButtonProps {
   typeButton?: any;
+  className?: any;
   onClick?: () => void;
   children: React.ReactNode;
 }
 
 export interface MovieContextType {
   selectedMovies: IData[];
-  countQuantityButton: number;
   addMovie: (movie: IData) => void;
   removeMovie: (movieId: number) => void;
   clearSelectedMovie: () => void;

@@ -30,4 +30,8 @@ export const CardContainer = styled.div`
     display: block;
     font-weight: 700;
   }
+
+  small{
+    margin-right: 10px;
+  }
 `

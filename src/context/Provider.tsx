@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import { BaseProviderProps, IData } from "../interfaces/Moveis";
+import { BaseProviderProps, IData } from "../interfaces/Movies";
 import { MovieContext } from "./MovieContext";
 
 
 const MovieProvider: React.FC<BaseProviderProps> = ({ children }) => {
   const [selectedMovies, setSelectedMovies] = useState<IData[]>([]);
-
+  
   const addMovie = (movie: IData) => {
     setSelectedMovies([...selectedMovies, movie]);
   };

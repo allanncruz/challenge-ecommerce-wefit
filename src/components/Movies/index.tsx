@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import Loading from "../Loading";
 import { IData } from "../../interfaces/Movies";
-import Button from "../Button";
-import { CartAdd } from "../Icons";
 import { useMovieContext } from "../../context/Provider";
-import { CardContainer } from "./style";
 import fetchMovies from "../../api/fetchMovies";
+import Card from "../Card";
 
 
 
 const Movies = () => {
-  const { countQuantityButton, addMovie } = useMovieContext();
+  const { addMovie } = useMovieContext();
   const [movies, setMovies] = useState<IData[]>();
   const [loading, setlLoading] = useState(true);
 
@@ -25,15 +23,13 @@ const Movies = () => {
     (loading && <Loading />) || (
       <>
         {movies?.map(movie => (
-          <CardContainer key={movie.id}>
-            <img src={movie.image} alt={movie.title} />
-            <h5>{movie.title}</h5>
-            <span>R$ {movie.price}</span>
-            <Button onClick={() => addMovie(movie)}>
-              <CartAdd />
-                            ADICIONAR AO CARRINHO
-            </Button>
-          </CardContainer>
+          <>
+            <Card
+              key={movie.id}
+              data={movie}
+              onClick={() => addMovie(movie)}
+            />
+          </>
         ))}
       </>
     )
